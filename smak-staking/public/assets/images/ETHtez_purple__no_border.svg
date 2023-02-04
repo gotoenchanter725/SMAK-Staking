@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="82px" viewBox="0 0 82 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ETHtez_purple_base_white_trim_no_border</title>
+    <defs>
+        <circle id="path-1" cx="41" cy="41" r="35"></circle>
+    </defs>
+    <g id="ETHtez_purple_base_white_trim_no_border" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" fill="#4E2BB6" cx="41" cy="41" r="41"></circle>
+        <rect id="Rectangle" transform="translate(41.000000, 40.650000) rotate(90.000000) translate(-41.000000, -40.650000) " x="1" y="30" width="80" height="21.3"></rect>
+        <circle id="Oval" cx="41" cy="41" r="35"></circle>
+        <circle id="Oval" stroke="#FFFFFF" stroke-width="5" cx="41" cy="41" r="28.5"></circle>
+        <rect id="Rectangle" fill="#4E2BB6" x="1" y="30" width="80" height="21.3" rx="4"></rect>
+        <g id="Oval" stroke="#4E2BB6">
+            <circle stroke-width="6" cx="41" cy="41" r="38"></circle>
+            <use stroke-width="2" xlink:href="#path-1"></use>
+            <circle stroke-width="3" cx="41" cy="41" r="36.5"></circle>
+        </g>
+        <g id="Ethereum_logo_2014" transform="translate(29.640000, 22.500000)" fill="#FFFFFF" fill-rule="nonzero">
+            <polygon id="Path" points="11.3564062 0 11.108353 0.843114501 11.108353 25.3083448 11.3564062 25.5559543 22.7128923 18.8431654"></polygon>
+            <polygon id="Path" points="11.3564861 0 0 18.8431654 11.3564861 25.556043 11.3564861 13.6813521"></polygon>
+            <polygon id="Path" points="11.3564062 27.7062157 11.2166267 27.8766136 11.2166267 36.5916663 11.3564062 37 22.7196372 20.9967993"></polygon>
+            <polygon id="Path" points="11.3564861 36.9998758 11.3564861 27.7060915 0 20.996675"></polygon>
+            <polygon id="Path" points="11.3564062 25.5559276 22.7127148 18.8432275 11.3564062 13.6814143"></polygon>
+            <polygon id="Path" points="7.98740039e-05 18.8432364 11.3563885 25.5559365 11.3563885 13.6814231"></polygon>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "mnemonic": [
+    "muffin",
+    "lobster",
+    "detail",
+    "illness",
+    "inmate",
+    "offer",
+    "just",
+    "raise",
+    "juice",
+    "useless",
+    "zero",
+    "ladder",
+    "review",
+    "lake",
+    "snack"
+  ],
+  "secret": "795a19ade00e09c3c3c9ca8c001a15519e4ebe7e",
+  "amount": "7069471340",
+  "pkh": "tz1asiz9ZzYjzFJxM91gD5JUnimQft8NWn3o",
+  "password": "Bz5UzvaJDn",
+  "email": "hpyhzilb.kojsdjhm@tezos.example.org"
+}

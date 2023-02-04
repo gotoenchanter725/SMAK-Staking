@@ -1,0 +1,625 @@
+Documentation API
+
+* Pools
+
+** /v1/pools_statistics
+
+Return the Total Volume on 24h, the Total Fees on 24h and the TVL on 24h and their evolution.
+
+*Exemple :*
+
+#+begin_src 
+{
+   "volume_24h": 0.0,
+   "volume_variation": 0.0,
+   "fees_24h": 0.0,
+   "tvl_24h": 0.0,
+   "tvl_variation": 0.0
+}
+#+end_src
+
+** /v1/pools
+   
+Retourne un tableau contenant la liste des pools et les informations des tokens associés.
+
+*Exemple :* 
+
+#+begin_src 
+[{
+    "token_address": "KT1K9gCRgaLRFKTErYt1wVxA3Frb9FjasjTV",
+    "pool_address": "KT1Wjadao8AXkwNQmjstbPGtLd1ZrUyQEDX7",
+    "token_id": 0,
+    "symbol": "kUSD",
+    "name": "Kolibri USD",
+    "decimals": 18,
+    "last_price_xtz": 0.1402914638, //Last recorder price for this token
+    "last_price_usd": 0.9121256642, //Last recorder price for this token
+    "contract_format": "FA12",
+    "icon": " https://kolibri-data.s3.amazonaws.com/logo.png",
+    "pool_address_1": "KT1Wjadao8AXkwNQmjstbPGtLd1ZrUyQEDX7",
+    "lqt_address": "KT1JZHtsz7r9uYLLRKGgLvP8HR5eM75MfrHU",
+    "lqt_total_supply": 4936.082828, //Total LP Supply
+    "xtz_pool": 4589.526266, //Xtz Quantity in the Pool
+    "token_pool": 32714.2232403492, //Token Quantity in the Pool
+    "lp_xtz": 1.8595823555, //LP Token price for this pool
+    "lp_usd": 12.1442098664 //LP Token price for this pool
+  }]
+#+end_src
+
+** /v1/pool/<pool_address>/prices
+   
+Retourne un tableau contenant le prix du token d’une pool et du xtz horodatés.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :* 
+
+#+begin_src 
+[{
+    "timestamp": 1632843498000,
+    "usd_token_price": 2.1935902852,
+    "usd_xtz_price": 5.9226937701,
+    "ratio_xtz_token": 0.3703703704,
+    "ratio_token_xtz": 2.7
+}]
+#+end_src
+
+** /v1/pool/<pool_address>/liquidity
+   
+Retourne un tableau contenant les transactions horodatées provoquant des changements au niveau de la liquidité d’une pool.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :* 
+
+#+begin_src 
+[{
+      "timestamp":"2021-09-28 02:07:58+00:00",
+      "id":14,
+      "investor_address":"tz1ZgSxdoVhQHRRaRjaZR5L461fah6rBsKeE",
+      "entrypoint":"addLiquidity", //ou removeLiquidity
+      "pool_address":"KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu",
+      "xtz_qty":16500.0, // Xtz amount added
+      "token_qty":1000000.0, // Token amount added
+      "usd_total":100048.4527999298 // Cost of the operation
+}]
+#+end_src
+
+** /v1/pool/<pool_address>/trades
+   
+Retourne un tableau contenant tous les trades horodatés ayant eu lieu sur une pool.
+
+Paramètres optionnels :
+
+- limit : (entier) → Nombre de résultats retournés
+- offset : (entier) → Début d’échantillon retourné (fonctionne avec limit)
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“desc” par défaut)
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :*
+
+Transaction avec des XTZ → Token ou Token → XTZ
+
+#+begin_src 
+[{
+   "timestamp": 1636376736000,
+   "id": 7155,
+   "investor_address": "tz1NjGSUuFWXgsSBUeEPx2zW9sHmZPLvwMyP",
+   "entrypoint": "xtzToToken", //ou tokenToXtz
+   "token_1_qty": 6.4, //XTZ
+   "token_2_qty": 1011.15, //SMAK
+   "usd_value": 41.5674711645, //Valeur de l’échange en début de trade
+   "level": 1846283,
+   "pool_address": "KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu", //SMAK
+   "operation_hash": "oohT1mCiJrfmcjhoiokRUN3PGZp2FX1U1qQjqDw6hWiNuZVHLoG",
+   "extra_pool_address": ""
+}]
+#+end_src
+
+Transaction Token → Token
+
+#+begin_src 
+[{
+   "timestamp":"2021-09-29 09:10:28+00:00",
+   "id":1173,
+   "investor_address": "tz1REkB2AxNWKEQp9UmU71D6cRGUrJ2Ryueb",
+   "entrypoint":"tokenToToken", //Ici du SMAK vers USDTz
+   "token_1_qty":1000.0, //SMAK
+   "token_2_qty":96.828434, //USDTz
+   "usd_value":96.2338939114, //Valeur de l’échange en début de trade
+   "pool_address":"KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu", //SMAK
+   "operation_hash":"oo8P24x5zxNtTzB1j9F8fJ7niyEYgCmcz5b6bfDwMKWdQewDgFD",
+   "extra_pool_address":"KT19HdcBJw8XJkDYKLr6ez9KkhhuS8MYUdcs", //USDTz
+}]
+#+end_src
+
+
+** /v1/pool/<pool_address>/value_locked
+   
+Retourne un tableau contenant l’évolution du Value Locked horodaté pour une pool ainsi que l’évolution en pourcentage.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :*
+
+/v1/pool/KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu/value_locked?rate=D → Récupération des Values Locked pour la pool SMAK agréger par heure
+
+#+begin_src 
+[...{
+   "timestamp":1635120000000,
+   "vl_usd":330178.8714293336,
+   "vl_xtz":50368.141068,
+   "pct_change":-0.001075884 //La Value Locked du SMAK a diminué de 0.1% depuis la dernière heure
+},...]
+#+end_src
+
+** /v1/pool/<pool_address>/volume
+   
+Retourne un tableau contenant tous les changements de Volume horodaté ayant eu lieu au sein d’une pool.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :*
+
+#+begin_src 
+[{
+   "timestamp":1632877200000,
+   "usd_volume":2641.9235636676, //A été multiplié par 2 pour obtenir le volume de la pool
+   "xtz_volume":470.45, //A été multiplié par 2 pour obtenir le volume de la pool
+   "usd_lp_fees":3.3024044546, //0.25% du volume
+   "xtz_lp_fees":0.5880625, //0.25% du volume
+   "usd_treasury":0.1320961782, //0.01% du volume
+   "xtz_treasury":0.0235225, //0.01% du volume
+   "usd_buyback":0.2641923564, //0.02% du volume
+   "xtz_buyback":0.047045 //0.02% du volume
+}]
+#+end_src
+
+** /v1/pool/total_trades
+
+Retourne un tableau contenant tous les trades ayant eu lieu sur toutes les pools.
+
+Paramètres optionnels :
+
+- limit : (entier) → Nombre de résultats retournés
+- offset : (entier) → Début d’échantillon retourné (fonctionne avec limit)
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“desc” par défaut)
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+(Retourne des valeurs similaires à /v1/pool/<pool_address>/trades)
+
+** /v1/pool/total_value_locked
+   
+Retourne un tableau contenant la somme des Valeurs Locked de toutes les pools.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+(Retourne des valeurs similaires à /v1/pool/<pool_address>/value_locked)
+
+** /v1/pool/total_volume
+   
+Retourne un tableau contenant la somme des Volumes de toutes les pools.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+(Retourne des valeurs similaires à /v1/pool/<pool_address>/volume)
+
+** /v1/pool/total_liquidity
+   
+Retourne un tableau contenant la liquidité totale cumulée et horodatée de toutes les pools depuis le premier ajout de liquidité.
+
+Paramètres optionnels :
+
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“desc” par défaut)
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+#+begin_src 
+[
+  {
+    "timestamp": 1635836400000,
+    "usd_total": 411459.6461715152, //Liquidité totale en USD
+    "xtz_qty_add": 41806.645947,  //Liquidité totale cumulée ayant été ajoutée depuis le début
+    "xtz_qty_remove": 6769.781488, //Liquidité totale cumulée ayant été retirée depuis le début
+    "xtz_total": 35036.864459 //Liquidité totale en XTZ depuis le début
+  }
+]
+#+end_src
+
+* Investor
+  
+** /v1/investor/<investor>
+   
+Retourne un tableau regroupant tous les investissements d’un utilisateur en fonction de sa clé publique.
+
+*Exemple :*
+
+#+begin_src 
+[
+   "pool_address": "KT1Wjadao8AXkwNQmjstbPGtLd1ZrUyQEDX7",
+   "amount_invested": 39.0367842451,
+   "lqt_address": "KT1JZHtsz7r9uYLLRKGgLvP8HR5eM75MfrHU",
+   "icon": " https://kolibri-data.s3.amazonaws.com/logo.png",
+   "pool_share": 0.0005706079,
+   "pooled_xtz": 2.6108046159,
+   "pooled_token": 18.7244484681,
+   "lp_qty": 2.816568,
+   "current_value": 33.8891088041,
+   "token_name": "Kolibri USD",
+   "token_symbol": "kUSD"
+}]
+#+end_src
+
+** /v1/investor/<investor>/smak_stake_flex
+   
+Retourne un tableau regroupant tous les SMAK stacked flex d’un utilisateur en fonction de sa clé publique.
+
+*Exemple :*
+
+#+begin_src 
+[
+   {
+      "investor_address":"tz1ZgSxdoVhQHRRaRjaZR5L461fah6rBsKeE",
+      "value":0.772666
+   }
+]
+#+end_src
+
+** /v1/investor/<investor>/smak_stake_lock
+   
+Retourne un tableau regroupant tous les SMAK stacked lock d’un utilisateur en fonction de sa clé publique.
+
+*Exemple :*
+
+#+begin_src 
+[
+   {
+      "investor_address":"tz1VjpweMC8PTWC57CwLfYovuZNbmGuEmnxb",
+      "value":0.139672
+   }
+]
+#+end_src
+
+** /v1/investor/<investor>/smak_redeemed
+   
+Retourne un tableau regroupant tous les SMAK redeemed d’un utilisateur en fonction de sa clé publique.
+
+*Exemple :*
+
+#+begin_src 
+[
+   {
+      "investor_address":"tz1VjpweMC8PTWC57CwLfYovuZNbmGuEmnxb",
+      "value":0.279344
+   }
+]
+#+end_src
+
+** /v1/investor/total_smak_redeemed
+   
+Retourne un tableau regroupant la somme de tous les SMAK redeemed horodatés à un instant T ainsi que leur valeur cumulée.
+
+Paramètres optionnels :
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :*
+
+#+begin_src 
+[
+  {
+    "timestamp": 1629392400000,
+    "value": 266185.809, //Somme de SMAK Redeemed à un instant donné
+    "total": 266185.809 //Somme cumulée de tous SMAK Redeemed depuis le début
+  }
+]
+#+end_src
+
+** /v1/investor/total_staking_program
+   
+Retourne un tableau regroupant la somme de tous les SMAK staked Lock & Flex horodatés à un instant T ainsi que leurs valeurs cumulées.
+
+Paramètres optionnels :
+
+- start : (entier timestamp seconde) → Horodatage minimal d’observation en s
+- end : (entier timestamp seconde) → Horodatage maximal d’observation en s
+- sort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :*
+
+#+begin_src 
+[
+  {
+    "timestamp": 1629403200000,
+    "flex": 0.0,    //Somme de SMAK Staked Flex à un instant donné
+    "flex_total": 0.0, //Somme cumulée de tous SMAK Staked Flex depuis le début
+    "lock": 3588.402, //Somme de SMAK Staked Lock à un instant donné
+    "lock_total": 3588.402 //Somme cumulée de tous SMAK Staked Lock depuis le début
+  }
+]
+#+end_src
+
+* Smak
+  
+** /v1/smak_burned
+   
+Retourne un tableau regroupant l’évolution du nombre de SMAK burned en fonction du temps.
+
+Paramètres optionnels :
+- start : (entier timestamp seconde) → Horodatage minimal d’observation
+- end : (entier timestamp seconde) → Horodatage maximal d’observationsort : (string : “asc” ou “desc”) → Ordonne les résultats par ordre croissant ou décroissant en fonction de l’horodatage (“asc” par défaut)
+- rate : (string) → Taux d'agrégation des valeurs retournées (exemple: “5T” pour 5 minutes, “D” pour Jour et “H” pour heure)
+
+*Exemple :*
+
+#+begin_src 
+[{
+   "timestamp":1624898470000,
+   "burned":10966.283
+}]
+#+end_src
+
+** /v1/smak_holders
+   
+Retourne un json affichant le nombre total de holder de SMAK.
+
+*Exemple :*
+
+#+begin_src 
+{
+   "amount": 3621,
+}
+#+end_src
+
+* Tops
+
+** /v1/top/pools
+   
+Retourne un classement des pools. (Classé par ordre décroissant de TVL)
+
+*Exemple :*
+
+#+begin_src 
+[{
+   "usd_token_price": 0.0683613293,
+   "ratio_token_xtz": 96.6691639882,
+   "ratio_xtz_token": 0.0103445603,
+   "symbol": "SMAK",
+   "name": "Smartlink",
+   "icon": "https://ipfs.io/ipfs/QmU2C4jU154nwA71AKHeiEj79qe7ZQC4Mf7AeUj5ALXZfe",
+   "token_address": "KT1TwzD6zV3WeJ39ukuqxcfK2fJCnhvrdN1X",
+   "pool_address": "KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu",
+   "usd_volume_24h": 3965.0595299769,
+   "usd_volume_7d": 3965.0595299769,
+   "fees_24h": 11.1021666839,
+   "fees_7d": 11.1021666839,
+   "tvl": 381339.5803380618,
+   "roi_1y": 1.0633741134
+}]
+#+end_src
+  
+** /v1/top/pools_by_fees
+   
+Retourne un classement des pools rapportant le plus de Fees sous la forme d’un tableau. (Classé par ordre décroissant)
+
+*Exemple :*
+
+#+begin_src 
+[{
+   "pool_address": "KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu",
+   "xtz_pool": 27758.090003,
+   "token_pool": 4339519.1560000004,
+   "xtz_volume": 40.0,
+   "usd_volume": 259.8521052887,
+   "ratio_xtz_token": 0.006396582,
+   "ratio_token_xtz": 156.3334925253,
+   "vl_xtz": 55516.180006,
+   "vl_usd": 360649.906303696,
+   "usd_token_price": 0.0415541323,
+   "usd_xtz_price": 6.4963026322,
+   "id_1": 2,
+   "token_id": 0,
+   "decimals": 3,
+   "last_price_xtz": 0.006396582,
+   "last_price_usd": 0.0415541323,
+   "usd_fees": 0.3637929474,
+   "xts_fees": 0.056,
+   "symbol": "SMAK",
+   "name": "Smartlink",
+   "icon": "https://ipfs.io/ipfs/QmU2C4jU154nwA71AKHeiEj79qe7ZQC4Mf7AeUj5ALXZfe"
+}]
+#+end_src
+
+** /v1/top/tokens
+   
+Retourne un classement des tokens ayant le plus gagné en valeur sur 24h sous la forme d’un tableau, leur volume sur 1 et 7 jours ainsi que leur TVL. (Classé par ordre décroissant de l’évolution du prix)
+
+*Exemple :*
+
+#+begin_src 
+{
+    "usd_token_price": 0.0362660766,
+    "ratio_token_xtz": 171.7125923249,
+    "ratio_xtz_token": 0.0058236847,
+    "symbol": "SMAK",
+    "name": "Smartlink",
+    "token_address": "KT1TwzD6zV3WeJ39ukuqxcfK2fJCnhvrdN1X",
+    "pool_address": "KT1LzyPS8rN375tC31WPAVHaQ4HyBvTSLwBu",
+    "usd_volume_24h": 104332.5244333648, 
+    "usd_volume_7d": 1043094.3095062508,
+    "tvl": 144 035,6343091072, //TVL divisé par 2 
+    "pct_token_price_24h": 0.0488560225
+}
+#+end_src
+
+** /v1/top/gainers
+   
+Retourne un classement des pools ayant le plus gagné en Fees sur 24h sous la forme d’un tableau. (Classé par ordre décroissant)
+
+*Exemple :*
+
+#+begin_src 
+{
+   "timestamp":1635120000000,
+   "xtz_volume":164.919363, //A été multiplié par 2 pour obtenir le volume de la pool
+   "usd_volume":1086.1835238081, //A été multiplié par 2 pour obtenir le volume de la pool
+   "usd_fees":2.7154588095,
+   "xtz_fees":0.4122984075,
+   "pct_change":-0.301355818, //Changement sur 24h, indique null si il n’y a pas eu de volume depuis 24h
+   "pool_address":"KT19HdcBJw8XJkDYKLr6ez9KkhhuS8MYUdcs"
+}
+#+end_src
+
+** /v1/top/losers
+   
+Retourne un classement des pools ayant le moins gagné en Fees sur 24h sous la forme d’un tableau. (Classé par ordre décroissant)
+
+*Exemple :*
+
+#+begin_src 
+{
+   "timestamp":1635120000000,
+   "xtz_volume":164.919363, //A été multiplié par 2 pour obtenir le volume de la pool
+   "usd_volume":1086.1835238081, //A été multiplié par 2 pour obtenir le volume de la pool
+   "usd_fees":2.7154588095,
+   "xtz_fees":0.4122984075,
+   "pct_change":-0.301355818, //Changement sur 24h, indique null si il n’y a pas eu de volume depuis 24h
+   "pool_address":"KT19HdcBJw8XJkDYKLr6ez9KkhhuS8MYUdcs"
+}
+#+end_src
+
+* Pools
+
+** /v1/farms
+   
+Return an array containing all the farms deployed.
+
+*Exemple :*
+
+#+begin_src 
+[{
+   "farm_address": "KT1CFzGjJHgb9ufZteu2PisGxyJpLboeLNJo",
+   "farm_smak_claim": 0.0, // Total Smak Claimed for this farm
+   "farm_usd_claim": 0.0, // Total USD Claimed for this farm
+   "creation_time": 1636123618000, // Farm creation time
+   "lp_contract": "KT1F7zytGMtjWvrZubpFTq7Px4ubaQybZMoH",
+   "rate": 9000,
+   "reserve_address": "tz1SJv5YsHCbHfg1Gp8P3GvQPSbiPJQ89bp7",
+   "smak_contract": "KT1TwzD6zV3WeJ39ukuqxcfK2fJCnhvrdN1X",
+   "total_reward_smak": 0.018, // Farm total reward in SMAK
+   "current_week": 1, // Farm current week based on creation time
+   "closing_time": 1638542818000, // Farm closing time based on creation time
+   "opened": true, // True if the farm is still open
+   "weeks": {
+      "1": {
+        "total_points": null, // Total point earned for every farmer on this farm for this week
+        "total_reward": 0.005 // Total reward for this week
+      },
+      "2": {
+        "total_points": 4680000.0,
+        "total_reward": 0.005
+      },
+      "3": {
+        "total_points": 7200000.0,
+        "total_reward": 0.004
+      },
+      "4": {
+        "total_points": 7200000.0,
+        "total_reward": 0.004
+      }
+   },
+   "lp_xtz": 1.2710241681, // Price of the LP Token
+   "lp_usd": 8.2187369138, // Price of the LP Token
+   "tvl_lp": 0.012, // TVL in LP Token for this farm
+   "tvl_xtz": 0.01525229, // TVL in XTZ for this farm
+   "tvl_usd": 0.098624843 // TVL in USD for this farm
+}]
+#+end_src
+
+** /v1/investor/<investor_address>/farms
+   
+Return an array containing all the farms deployed for an investor.
+
+*Exemple :*
+
+#+begin_src 
+[{
+   "farmer_address": "tz1SJv5YsHCbHfg1Gp8P3GvQPSbiPJQ89bp7",
+   "farm_smak_claim": 0.0,
+   "farm_usd_claim": 0.0,
+   "smak_claim": 0.0, //Total SMAK Claimed for this farm for this user
+   "usd_claim": 0.0, //Total USD Claimed for this farm for this user
+   "lp_stake": 0.012, //Total LP Staked for this farm for this user
+   "lp_qty": 0.118394, //LP Balance for this farm for this user
+   "farm_address": "KT1CFzGjJHgb9ufZteu2PisGxyJpLboeLNJo",
+   "creation_time": 1636123618000,
+   "lp_contract": "KT1F7zytGMtjWvrZubpFTq7Px4ubaQybZMoH",
+   "rate": 9000,
+   "reserve_address": "tz1SJv5YsHCbHfg1Gp8P3GvQPSbiPJQ89bp7",
+   "smak_contract": "KT1TwzD6zV3WeJ39ukuqxcfK2fJCnhvrdN1X",
+   "total_reward_smak": 0.018,
+   "current_week": 1,
+   "closing_time": 1637938018000,
+   "opened": true,
+   "weeks": {
+   "2": {
+     "points": 4680000, //Points for this week, for this user, for this farm
+     "total_points": 4680000,
+     "total_reward": 0.004
+   },
+   "3": {
+     "points": 7200000,
+     "total_points": 7200000,
+     "total_reward": 0.004
+   },
+   "4": {
+     "points": 7200000,
+     "total_points": 7200000,
+     "total_reward": 0.004
+   }
+   },
+   "lp_xtz": 1.2710241681,
+   "lp_usd": 8.2155957434,
+   "tvl_lp": 0.012,
+   "tvl_xtz": 0.01525229,
+   "tvl_usd": 0.0985871489
+}]
+#+end_src

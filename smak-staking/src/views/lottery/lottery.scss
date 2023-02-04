@@ -1,0 +1,257 @@
+.light {
+  --primary: #7b78ff;
+  --primary-text: #7b78ff;
+  --secondary: #b459ca;
+  --secondary-text: #b459ca;
+  --bot:#000000;
+
+}
+
+.dark {
+  --primary: #7b78ff;
+  --primary-text: #c3c1ff;
+  --secondary: #b459ca;
+  --secondary-text: #fec0ff;
+  --bot:#000000;
+
+}
+
+.pannel-header {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+
+.section-head {
+
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-top: -31px;
+  font-weight: 600;
+  font-size:27px;
+
+}
+
+.pannel{
+  border-radius: 20px !important;
+}
+
+.staking-dialog .btn {
+  border-radius: 0.9em;
+}
+
+.staking-dialog .title {
+  font-size: 1.25rem;
+  border:none !important;
+  padding: 1.3em 1em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -18px;
+  font-weight: 600;
+}
+
+.staking-dialog{
+ border: 1px solid rgb(54 58 72);
+ border-radius:20px;
+}
+
+.staking-details-info-title {
+  font-size: 16px !important;
+}
+
+.staking-details-info {
+  background-color: var(--nested-pannel);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--pannel-border);
+  display: flex;
+  margin-top: 27px;
+  justify-content: space-around;
+}
+
+.your-history-btn {
+  background: var(--active);
+
+  &.disabled {
+    background: var(--connect-wallet-btn);
+    color: var(--connect-wallet-btn-txt);
+    cursor: not-allowed !important;
+  }
+}
+
+
+
+.staking-dialog table {
+  font-size: 1rem;
+}
+
+.label {
+  font-weight: 600;
+  flex-grow: 1;
+  margin-left:5px;
+}
+.text-primary {
+  color: var(--primary-text);
+}
+.text-secondary {
+  color: var(--secondary-text);
+}
+.background-primary {
+  background-color: var(--primary-text);
+}
+.background-secondary {
+  background-color: var(--secondary-text);
+}
+
+.smak-input-wrapper {
+  padding: 7px 14px 7px 15px;
+}
+
+
+
+
+#lottery-view .btn {
+  min-width: 100px;
+  min-width: 134px;
+  max-height: 40px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+
+  &.alt {
+    background: var(--secondary);
+  }
+}
+
+.v-dialog
+{
+  box-shadow:none!important;
+  margin-top:-194px;
+  max-width: 450px;
+}
+
+.centered-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    margin-top: 18px;
+    margin-bottom: -45px;
+}
+
+.separator.big {
+  height: 100px;
+
+}
+.subtle {
+  opacity: 0.7;
+}
+.ellipse {
+  max-width: 100px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  cursor: default;
+    font-weight: 600;
+    line-height: 31px;
+}
+
+.scrollable {
+  overflow-y: auto;
+  padding-left: 10px;
+  max-height: 273px !important;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #00000000;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #4f5063;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #6a6b7c;
+  }
+}
+
+.rounded-box {
+  width: 3em;
+  height: 1em;
+  border-radius: 6px;
+}
+
+#bar-chart{
+
+  height:374px !important;
+  width:572px !important;
+}
+
+
+.nested {
+  background-color: var(--nested-pannel);
+  border-radius: 1em;
+  padding: 0.8em;
+  border-color: #fcfcff0f !important;
+    border: solid;
+    border-width: 1px;
+}
+
+
+
+.h-layout > .btn:not(:last-child) {
+  margin-right: 16px;
+}
+
+@media screen and (max-width: 960px) {
+  .first-col {
+    width: auto !important;
+    max-width: auto !important;
+  }
+
+  .h-layout > .pannel:not(:last-child) {
+    margin-right: 0;
+  }
+  .h-layout > .btn:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 46px;
+  }
+
+  .section-header {
+    margin-left: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .first-col {
+    width: 521px;
+    max-width: 470px;
+  }
+}
+
+
+@media screen and (max-width: 959px){
+.pannel:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: -7px;
+    margin-top: 20px;
+}}
+
+@media screen and (max-width: 960px){
+.first-col {
+
+    margin-top: -12px;
+}}
+
+@media screen and (max-width: 959px){
+.staking-details-info-title, .staking-details-info-value {
+    font-family: "Source Sans Pro";
+    font-size: 15px !important;
+   
+}}

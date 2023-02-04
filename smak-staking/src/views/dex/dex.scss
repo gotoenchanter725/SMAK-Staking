@@ -1,0 +1,1634 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro");
+
+// Colors
+$black: rgba(13, 13, 20, 1);
+$dark-gray: rgba(159, 169, 192, 1);
+$dark-slate-blue: rgba(73, 63, 133, 1);
+$dark-slate-gray: rgba(51, 100, 71, 1);
+$dim-gray: rgba(83, 81, 107, 1);
+$gainsboro: rgba(219, 220, 235, 1);
+$gainsboro-2: rgba(208, 211, 231, 1);
+$gainsboro-3: rgba(213, 215, 231, 1);
+$lavender: rgba(231, 231, 246, 1);
+$lavender-2: rgba(233, 234, 248, 1);
+$lime-green: rgba(72, 171, 38, 1);
+$medium-slate-blue: rgba(130, 86, 255, 1);
+$medium-slate-blue-2: rgba(118, 115, 255, 1);
+$orchid: rgba(211, 94, 240, 1);
+$transparent-cadet-blue: rgba(97, 187, 132, 0.73);
+$transparent-dark-slate-gray: rgba(63, 77, 94, 0.46);
+$transparent-medium-slate-blue: rgba(130, 86, 255, 0.54);
+$violet: rgba(212, 131, 232, 1);
+$white: rgba(255, 255, 255, 1);
+$transparent-white: rgba(255, 255, 255, 0.5);
+$transparent-purple: rgba(151, 161, 255, 0.32);
+$text-low-opacity: 0.75;
+
+.theme-colors {
+  --black: $black;
+  --dark-gray: rgba(159, 169, 192, 1);
+  --dark-slate-blue: rgba(73, 63, 133, 1);
+  --dark-slate-gray: rgba(51, 100, 71, 1);
+  --dim-gray: rgba(83, 81, 107, 1);
+  --gainsboro: rgba(219, 220, 235, 1);
+  --gainsboro-2: rgba(208, 211, 231, 1);
+  --gainsboro-3: rgba(213, 215, 231, 1);
+  --lavender: rgba(231, 231, 246, 1);
+  --lavender-2: rgba(233, 234, 248, 1);
+  --lime-green: rgba(72, 171, 38, 1);
+  --medium-slate-blue: rgba(130, 86, 255, 1);
+  --medium-slate-blue-2: rgba(118, 115, 255, 1);
+  --orchid: rgba(211, 94, 240, 1);
+  --transparent-cadet-blue: rgba(97, 187, 132, 0.73);
+  --transparent-dark-slate-gray: rgba(63, 77, 94, 0.46);
+  --transparent-medium-slate-blue: rgba(130, 86, 255, 0.54);
+  --violet: rgba(212, 131, 232, 1);
+  --white: rgba(255, 255, 255, 1);
+  --transparent-white: rgba(255, 255, 255, 0.5);
+  --transparent-purple: rgba(151, 161, 255, 0.32);
+  --text-low-opacity: 0.75;
+}
+
+.theme--light.v-application {
+  //transition: color 0ms ease-in-out, background-color 0ms ease-in-out;
+  background: var(--background);
+  color: var(--text);
+}
+
+.light {
+  --background: rgba(226, 227, 234, 1);
+  --pannel: rgba(231, 232, 240, 1);
+  --pannel-border: rgba(255, 255, 255, 1);
+  --token-box:rgba(231, 232, 240, 1);
+  --menu-background: rgba(219, 220, 235, 1);
+  --menu-selected: rgba(231, 231, 246, 1);
+  --nested-pannel: rgba(235, 236, 242, 1);
+  --active: rgba(130, 86, 255, 1);
+  --selected: rgba(130, 86, 255, 1);
+  --input: rgba(231, 231, 246, 1);
+  --input-border:rgba(255, 255, 255, 1);
+  --text: rgba(13, 13, 20, 1);
+  --active-btn-text: white;
+  --border: rgba(255, 255, 255, 1);
+  --minimum-value: rgba(73, 63, 133, 1);
+  --error: rgba(200, 36, 88, 1);
+  --warning: rgba(233, 94, 136, 1);
+  --success: rgba(94, 84, 208, 1);
+  --btn-disabled: rgba(133, 134, 153, 1);
+  --button: rgba(63, 77, 94, 0.2);
+  --signout: rgba(118, 115, 255, 1);
+  --signout-font: rgba(255, 255, 255, 1);
+  --signout-font-button: rgba(255, 255, 255, 1);
+  --overlay: rgba(128, 128, 128, 0.74);
+  --connect-wallet-btn: rgba(130, 86, 255, 0.54);
+  --connect-wallet-btn-txt: rgba(255, 255, 255, 1);
+  --wallet-connection-text:rgba(88, 88, 136, 1);
+  --wallet-connection-text-background: rgba(240, 241, 248, 1);
+  --wallet-connection-text-background-border: rgba(255, 255, 255, 1);
+  --wallet-connection-text-highlight:rgba(104, 64, 219, 1);
+  --wallet-connection-buttons-background:rgba(231, 232, 240, 1);
+  --wallet-connection-buttons-background-border:rgba(255, 255, 255, 1);
+  --dashboard-title: rgba(130, 86, 255, 1);
+  --total-locked-amount: rgba(105, 102, 255, 1);
+  --interest-period-border: rgba(105, 102, 255, 1);
+  --error-msg:rgba(255, 133, 95, 1);
+  --separator:rgba(255, 255, 255, 0.03);
+  --menu-btn:rgba(255, 255, 255, 1);
+  --mobile-menu-item:rgba(59, 60, 81, 1);
+  --mobile-menu-item-border:rgba(80, 87, 112, 0.63);
+  --staking-info-background-on-mobile: rgba(58, 59, 82, 1);
+  --confirmation-alert:#8A5AEE;
+  --confirming-alert:rgba(138, 90, 238, 1);
+  --error-alert:#DE7C5B;
+  --flexible-locked-tag: rgb(214 213 255);
+  --flexible-locked-tag2:rgb(124 107 173);
+  --option-selected:rgba(231, 232, 240, 1);
+  --option-selected-text:rgba(13, 13, 20, 1);
+  --buttons-text: rgba(255, 255, 255, 1);
+  --pop-up-input: rgba(214, 215, 223, 1);
+  --pop-up-input-border:rgba(255, 255, 255, 0.2);
+  --stake-option-selected:rgba(231, 232, 240, 1);
+  --stake-option:rgba(240, 241, 248, 1);
+  --price-background:rgba(46, 165, 95, 1);
+  --price-color:rgba(46, 165, 95, 1);
+  --confirmation-text-alert:rgba(255, 255, 255, 1);
+  --confirming-text-alert:rgba(255, 255, 255, 1);
+  --error-text-alert:rgba(255, 255, 255, 1);
+  --text-unselected:rgb(39 39 51 / 48%);
+  --text-unselected-hover:rgb(39 39 51 / 38%);
+  --text2:#00000075;
+  --neg-price-background:#F3CED7;
+  --neg-price-color:#FF7C7C;
+  --search-mod: rgba(231, 232, 240, 1);
+  --search-see-more:rgba(62, 49, 187, 1);
+  --search-mod-border:rgb(60, 41, 236);
+  --slippage-percent: rgba(200, 202, 219, 1);
+  --volume-header: rgba(233, 234, 243, 1);
+  --volume-header-border: white;
+  --slippage-btn:rgba(206, 190, 252, 1);
+  --slippage-tol:rgba(66, 64, 104, 1);
+}
+
+.dark {
+  --background: rgba(36, 37, 55, 1);
+  --pannel: rgba(49, 50, 70, 1);
+  --token-box:#2a2b3d;
+  --pannel-border: rgba(80, 87, 112, 0.43);
+  --menu-background: rgba(49, 50, 70, 1);
+  --menu-selected: rgba(38, 38, 56, 1);
+  --nested-pannel: rgba(58, 59, 82, 1);
+  --active: rgba(94, 84, 208, 1);
+  --selected: rgba(47, 48, 66, 1);
+  --input: rgba(38, 38, 56, 1);
+  --input-border:rgba(255, 255, 255, 0.1);
+  --text: white;
+  --text2:#C8C8CF;
+  --active-btn-text: white;
+  --border: rgba(58, 59, 82, 1);
+  --minimum-value: rgba(230, 190, 255, 1);
+  --error: rgba(200, 36, 88, 1);
+  --warning: rgba(233, 119, 94, 1);
+  --success: rgba(70, 176, 138, 1);
+  --button: rgba(63, 77, 94, 0.67);
+  --signout: rgba(166, 160, 255, 0.09);
+  --signout-font: rgba(151, 161,255,1);
+  --signout-font-button: rgb(250, 250, 250);
+  --overlay: rgba(17,17,25, 0.74);
+  --connect-wallet-btn: rgba(77, 137, 255, 0.14);
+  --connect-wallet-btn-txt: rgba(135, 159, 255, 1);
+  --wallet-connection-text:rgba(255,255,255,0.61);
+  --wallet-connection-text-background: rgba(59, 60, 81, 0.35);
+  --wallet-connection-text-background-border: rgba(80, 87, 112, 0.33);
+  --wallet-connection-text-highlight:rgba(96, 128, 183, 1);
+  --wallet-connection-buttons-background:rgba(59, 60, 81, 1);
+  --wallet-connection-buttons-background-border:rgba(80, 87, 112, 0.33);
+  --dashboard-title: rgba(207, 168, 255, 1);
+  --total-locked-amount: rgba(191, 190, 255, 1);
+  --interest-period-border: rgba(210, 194, 255, 1);
+  --btn-disabled:rgba(52, 55, 82, 1);
+  --error-msg:rgba(255, 133, 95, 1);
+  --separator:rgba(255, 255, 255, 0.03);
+  --menu-btn:rgba(255, 255, 255, 1);
+  --mobile-menu-item:rgba(59, 60, 81, 1);
+  --mobile-menu-item-border:rgba(80, 87, 112, 0.63);
+  --staking-info-background-on-mobile: rgba(58, 59, 82, 1);
+  --confirmation-alert:rgb(116, 65, 235);
+  --confirming-alert:rgb(98 71 208);
+  --error-alert:rgba(115, 67, 51, 1);
+  --flexible-locked-tag: #fed6ff1c;
+  --flexible-locked-tag2:rgba(255, 255, 255, 1);
+  --option-selected:rgba(47, 48, 66, 1);
+  --option-selected-text:rgba(255, 255, 255, 1);
+  --buttons-text: rgba(255, 255, 255, 1);
+  --pop-up-input: rgba(38, 38, 56, 1);
+  --pop-up-input-border:rgba(255, 255, 255, 0.2);
+  --stake-option-selected:rgba(47, 48, 66, 1);
+  --stake-option:rgba(38, 38, 56, 1);
+  --price-background:rgba(49, 96, 67, 0.53);
+  --price-color:rgba(46, 165, 95, 1);
+  --confirmation-text-alert:rgba(255, 255, 255, 1);
+  --confirming-text-alert:rgba(255, 255, 255, 1);
+  --error-text-alert:rgba(255, 255, 255, 1);
+  --text-unselected:rgb(225 225 228 / 55%);
+  --text-unselected-hover:rgb(225 225 228 / 35%);
+  --neg-price-background:#5F3B43;
+  --neg-price-color:#FF7C7C;
+  --search-mod: rgb(28, 31, 46);
+  --search-see-more:rgba(131, 248, 255, 1);
+  --search-mod-border:rgb(138 110 250);
+  --slippage-percent: rgb(73, 77, 105);
+  --volume-header: rgba(60, 50, 136, 1);
+  --volume-header-border: rgba(97, 87, 169, 1);
+  --slippage-btn:rgba(190, 133, 28, 1);
+  --slippage-tol:rgba(186, 183, 242, 1);
+}
+
+a {
+  border:none!important;
+}
+.menu-wrapper.small-screen-adapt
+{
+  justify-content: center!important;
+}
+
+.v-application a
+{
+  text-decoration: none !important;
+  color: var(--text)!important;
+}
+
+html,
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: rgba(36, 37, 55, 1)
+ 
+}
+
+.staking-dashboard-cols
+{
+  min-width: 959px!important; 
+  max-width: 1211px!important;
+}
+
+.bubl
+{
+  background:rgb(31, 31, 34);
+  margin-left:-16px;
+  margin-right:-16px;
+  margin-top:-16px;
+  margin-bottom:-16px;
+  border:solid;
+  border-color:rgb(31, 31, 34);
+  border-radius:11px;
+  border-width:6px;
+  padding:5px;
+}
+
+// Typographies
+@mixin source-code-pro-27-regular {
+  font-family: "Source Code Pro";
+  font-size: 27px!important;
+  font-weight: 400;
+  line-height: 42px;
+}
+@mixin source-sans-pro-13-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 13px!important;
+  font-weight: 600;
+  line-height: 19px;
+}
+@mixin source-sans-pro-13-semi-bold-line20 {
+  font-family: "Source Sans Pro";
+  font-size: 13px!important;
+  font-weight: 600;
+  line-height: 20px;
+}
+@mixin source-sans-pro-14-bold {
+  font-family: "Source Sans Pro";
+  font-size: 14px!important;
+  font-weight: 700;
+  line-height: 21px;
+}
+@mixin source-sans-pro-14-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 14px!important;
+  font-weight: 600;
+  line-height: 21px;
+}
+@mixin source-sans-pro-15-regular {
+  font-family: "Source Sans Pro";
+  font-size: 15px!important;
+  font-weight: 400;
+  line-height: 23px;
+}
+@mixin source-sans-pro-15-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 15px!important;
+  font-weight: 600;
+  line-height: 22px;
+}
+@mixin source-sans-pro-16-regular {
+  font-family: "Source Sans Pro";
+  font-size: 16px!important;
+  font-weight: 400;
+  line-height: 25px;
+}
+@mixin source-sans-pro-16-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 16px!important;
+  font-weight: 600;
+  line-height: 25px;
+}
+@mixin source-sans-pro-17-regular {
+  font-family: "Source Sans Pro";
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 26px;
+}
+@mixin source-sans-pro-17-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 17px!important;
+  font-weight: 600;
+  line-height: 26px;
+}
+@mixin source-sans-pro-18-regular {
+  font-family: "Source Sans Pro";
+  font-size: 18px!important;
+  font-weight: 400;
+  line-height: 28px;
+}
+@mixin source-sans-pro-18-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 18px!important;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+@mixin source-sans-pro-18-bold {
+  font-family: "Source Sans Pro";
+  font-size: 18px!important;
+  font-weight: 700;
+  line-height: 28px;
+}
+@mixin source-sans-pro-20-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 31px;
+}
+
+@mixin source-sans-pro-24-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 19px!important;
+  font-weight: 600;
+  line-height: 37px;
+}
+@mixin source-sans-pro-27-regular {
+  font-family: "Source Sans Pro";
+  font-size: 27px!important;
+  font-weight: 400;
+  line-height: 42px;
+}
+
+@mixin source-sans-pro-27-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 27px!important;
+  font-weight: 600;
+  line-height: 42px;
+}
+
+@mixin source-sans-pro-30-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 30px!important;
+  font-weight: 600;
+  line-height: 42px;
+}
+
+@mixin source-sans-pro-11-semi-bold {
+  font-family: "Source Sans Pro";
+  font-size: 11px!important;
+  font-weight: 600;
+}
+
+.v-overlay__scrim
+{
+  background: #040407!important;
+}
+
+.v-dialog
+{
+  box-shadow:none!important;
+  margin-top:0px!important;
+  height: 86%;
+  display: flex;
+  align-items: center;
+}
+
+.logo-top {
+  width:130px;
+}
+
+.switch {
+  padding: 8px;
+  background-color: var(--button);
+  border-radius: 7px;
+  margin-bottom: -7px;
+  width: 32px;
+}
+
+.switch:hover{
+  background-color: rgb(96 111 130 / 20%);
+
+}
+
+.staking-details-btn.disabled
+{
+  .staking-details{
+    cursor: not-allowed;
+  }
+  .flexible-staking
+  {
+    cursor: not-allowed;
+  }
+}
+
+.contract-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-color: #bb393900 !important;
+  border-bottom:solid;
+ border-width:0.5px;
+}
+.contract-name:hover {
+  border-color: #ffffff !important;
+  border-bottom:solid;
+ border-width:0.5px;
+}
+
+.flex-wrapper-twenty-six {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.dashboard {
+  width: 75px;
+  color: var(--text);
+  margin-right: 9px;
+  @include source-sans-pro-16-regular;
+}
+
+.check-staking{
+  // right:0;
+  // left:0;
+  // top:0;
+  // margin-top:auto;
+  // margin-bottom:auto;
+  // margin-left:auto;
+  // margin-right: auto;
+  // bottom:0;
+  // position:absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height:auto;
+  z-index: 2;
+}
+
+.staking.header
+{
+  @include source-sans-pro-20-semi-bold;
+  margin-left:15px;
+}
+
+.staking-info
+{
+  margin-left:15px;
+  margin-right:15px;
+}
+
+.staking-info .item
+{
+  margin-bottom:-25px;
+  align-items: center;
+}
+
+.staking-info .item .labels
+{
+  //line-height: 28px!important;
+  @include source-sans-pro-14-semi-bold;
+  //margin-left: 15px;
+}
+.interest-period
+{
+  border-left: 2px solid var(--interest-period-border);
+  padding-left: 16px;
+}
+.staking-info .item .results
+{
+  @include source-sans-pro-14-semi-bold;
+  text-align: right;
+  //line-height: 28px!important;
+  //margin-right:15px;
+}
+
+.staking-info .item .total-locked-amount
+{
+  color: var(--total-locked-amount);
+  @include source-sans-pro-17-semi-bold;
+  margin-bottom: -5px;
+}
+
+.smak-staking-data {
+  width: 149px;
+  color: var(--dashboard-title);
+  text-align: center;
+  @include source-sans-pro-18-semi-bold;
+}
+
+.smak-number-title {
+  color: var(--text2);
+  margin-bottom: 22px;
+  @include source-sans-pro-16-semi-bold;
+}
+
+.smak-number-value {
+  @include source-sans-pro-20-semi-bold;
+}
+
+.rectangle-532 {
+  background-color: var(--price-background);
+  color: var(--price-color);
+  border-radius: 4px;
+  padding: 0px 6px;
+  margin-left: 16px;
+  width: 60px;
+  display: inline-block;
+  text-align: center;
+  @include source-sans-pro-13-semi-bold;
+}
+
+.rectangle-532.negative{
+  background-color: var(--neg-price-background);
+  color: var(--neg-price-color);
+}
+
+.confirm-stake{
+  height:66px;
+  color: var(--active-btn-text);
+  background: var(--connect-wallet-btn);
+  cursor: pointer;
+  @include source-sans-pro-24-semi-bold;
+}
+
+.menu-btn
+{
+  height:20px;
+  color: var(--meun-btn)!important;
+  padding: 0px 0px 8px 8px;
+}
+.mobile-menu.item
+{
+  text-align:center;
+  margin: 15px 10px;
+  background: var(--mobile-menu-item);
+  border: 1px solid var(--mobile-menu-item-border);
+  padding:15px;
+  border-radius: 13px;
+  @include source-sans-pro-16-semi-bold;
+}
+
+.mobile-menu
+{
+  min-width: 0px!important;  
+  max-width: 650px!important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.num-2 {
+  height: 20px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  right: 60px;
+  top: 9px;
+  @include source-sans-pro-13-semi-bold;
+}
+
+.h-layout {
+  display: flex;
+  // align-items: flex-start;
+  &:not(:last-of-type) {
+    margin-bottom: 18px;
+    &.big {
+      margin-bottom: 54px;
+    }
+  }
+}
+
+.staking-dashboard-cols{
+  min-width: 1024px; 
+  max-width: 1063px;
+}
+
+.pannel.graph-pannel {
+  padding: 27px 17px 14px 30px;
+  max-width: 802px;
+  min-width: 610px;
+  height: 441px;
+  margin-left:16px;
+}
+
+.pannel.staking-details-pannel{
+  min-width: 550px;
+  max-width: 704px;
+  margin-right:16px;
+}
+
+.pannel.stats:last-child{
+  min-width: 300px;
+  max-width: 362px;
+  margin-right:16px;
+}
+
+.pannel.stats:first-child{
+  max-width: 402px;
+  margin-left: 16px;
+}
+
+.pannel.stats{
+  min-width: 297px;
+  max-width: 390px;
+}
+
+.pannel.contract-details{
+  min-width: 300px;
+  max-width: 362px;
+  margin-right:16px;
+}
+
+
+.flex-wrapper-thirty-one {
+  margin-bottom: 25px;
+  padding: 0 0 0 1px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.flex-wrapper-twenty-three {
+  margin-right: 369px;
+  position: relative;
+}
+
+.smak-staking-analysis {
+  height: 25px;
+  width: 193px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 20px;
+  @include source-sans-pro-17-semi-bold;
+}
+
+.user-address{
+  position: relative;
+  top: -3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 3px 25px;
+  background: var(--signout);
+  @include source-sans-pro-18-regular;
+  color: var(--signout-font);
+  border-radius: 7px;
+  margin-left: 8px;
+  width: 153px;
+  cursor:auto!important;
+}
+
+.signout{
+  position: relative;
+  top: -3px;
+  padding: 3px 20px;
+  background: var(--signout);
+  @include source-sans-pro-18-regular;
+  color: var(--signout-font-button);
+  border-radius: 7px;
+  margin-left: 8px;
+}
+.signout:hover{
+  background-color: rgb(118 115 255 / 25%);
+}
+
+.connect-wallet{
+  position: relative;
+  top: -3px;
+  padding: 3px 20px;
+  background: var(--signout);
+  @include source-sans-pro-18-regular;
+  color: var(--signout-font);
+  border-radius: 7px;
+  margin-left: 8px;
+}
+
+.bubble{
+
+  background:black;
+ 
+}
+.info-bubble {
+  padding: 0.75px 0 1.5px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 25px;
+ 
+}
+
+.ellipse-84 {
+  width: 25px;
+  height: 25px;
+  background-color: $transparent-purple;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+.question-mark {
+  width: 9px;
+  color: #ffffff;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  left: 9px;
+  top: -1px;
+  @include source-sans-pro-18-bold;
+}
+
+.flex-wrapper-twenty-one {
+  width: 780px;
+  background-size: 100% 100%;
+  background-position: center;
+  background: url("https://static.overlay-tech.com/assets/ba570172-f11b-416d-b41a-61f81378c98e.svg"),
+    url("https://static.overlay-tech.com/assets/24b1839b-2d96-4203-957c-0f3b8dc3f898.svg");
+  position: absolute;
+  left: -1px;
+  top: 128px;
+}
+
+.chart echarts{
+
+  height: 320px;;
+}
+
+.pannel.text-pannel {
+  padding: 11px 26px;
+}
+
+.smak-staking-contract-details {
+  width: 221px;
+  color: var(--text);
+  text-align: center;
+  margin-top: 16px;
+  margin-bottom: 33px;
+  @include source-sans-pro-17-semi-bold;
+}
+
+.contract-details-line {
+  margin-bottom: 21px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  color: var(--text);
+  @include source-sans-pro-15-regular;
+}
+
+.contract-details-line-title {
+}
+.contract-details-line-value {
+  &.small {
+    max-width: 120px;
+  }
+}
+
+.tezos-mainnet {
+  color: var(--text);
+  @include source-sans-pro-15-regular;
+  position: relative;
+    top: 17px;
+    font-size:13px !important;
+}
+
+.ellipse-76 {
+  width: 7px;
+  height: 7px;
+  background-color: $lime-green;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+    top: 16px;
+}
+
+.section-header {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: -31px;
+  @include source-sans-pro-27-semi-bold;
+}
+
+.pannel {
+  position: relative;
+
+  background-color: $gainsboro;
+  background-color: var(--pannel);
+
+  border-radius: 20px;
+  padding: 8px 16px 16px 16px;
+
+  border: 1px solid $transparent-white;
+  border: 1px solid var(--pannel-border);
+
+  margin: 0;
+  flex-grow: 1;
+  &:not(:last-child) {
+    margin-right: 18px;
+  }
+}
+
+// .column {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   position: relative;
+// }
+
+.my-staking-details {
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  margin-bottom: 17px;
+  margin-top: 15px;
+  margin-left: 8px;
+ 
+  @include source-sans-pro-20-semi-bold;
+}
+
+.staking-details-info {
+  background-color: var(--nested-pannel);
+  margin-bottom: 17px;
+  border-radius: 20px;
+  padding: 11px 10px 17px 11px;
+  border: 1px solid $transparent-white;
+  
+  border: 1px solid var(--pannel-border);
+  display: flex;
+  margin-top: 27px;
+  justify-content: space-around;
+}
+.button-column{
+  width: 100px;
+}
+
+.button-column.unstake-title{
+  width: 83px;
+}
+
+.button-column.redeem-title{
+  width: 125px;
+}
+
+.staking-details-info-title {
+  color:var(--text2);
+  margin-top: 7px;
+  text-align: center;
+  @include source-sans-pro-15-semi-bold;
+}
+
+.staking-details-info-value {
+  color: var(--text);
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: -2px;
+  @include source-sans-pro-20-semi-bold;
+}
+
+.stacking-details-actions {
+  display: flex;
+}
+
+.stacking-details-action-wrapper {
+  flex-grow: 1;
+  position: relative;
+  &:not(:last-of-type) {
+    margin-right: 19px;
+  }
+
+  background-color: $gainsboro-2;
+  background-color: var(--nested-pannel);
+
+  border-radius: 20px;
+  padding: 0px 13px 13px;
+  position: relative;
+  text-align: center;
+  border: 1px solid $transparent-white;
+ 
+  border: 1px solid var(--pannel-border);
+}
+
+.alert.confirmation{
+  background: var(--confirmation-alert);
+  color: var(--confirmation-text-alert);
+}
+
+.alert.notsuccessful{
+  background: var(--error-alert);
+  color: var(--error-text-alert);
+}
+
+.alert.confirming{
+  background: var(--confirming-alert);
+  color: var(--confirming-text-alert);
+  line-height: 26px;
+}
+
+.alert{
+  position: absolute;
+  top: 79px;
+  right: 35px;
+  border-radius: 30px !important;
+  display:flex;
+  padding: 7px 17px 7px 17px;
+  @include source-sans-pro-15-semi-bold;
+}
+.staking-details-btn {
+  
+  background-color: var(--active);
+  border-radius: 13px;
+ 
+}
+
+.staking-details {
+  color: $white;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 7px;
+  @include source-sans-pro-16-semi-bold;
+}
+
+.staking-details-btn:hover {
+ 
+  background-color: rgb(94 84 208 / 73%);
+   
+ }
+
+.error-msg
+{
+  color: var(--error-msg)
+
+}
+
+.wallet-connection-dialog {
+  background: var(--pannel);
+  border: 1px solid var(--border);
+  color: var(--text);
+
+  font-family: "Source Sans Pro";
+  font-size: 15px;
+  font-weight: 600;
+
+  position: relative;
+
+  border-radius: 12px;
+
+  .dialog-title {
+    padding: 20px 46px;
+    @include source-sans-pro-18-semi-bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .text {
+    padding: 10px 23px;
+    @include source-sans-pro-15-semi-bold;
+    color: var(--wallet-connection-text);
+    background: var(--wallet-connection-text-background);
+    border: 1px solid var(--wallet-connection-text-background-border);
+    border-radius:13px;
+    margin: 0px 26.2px;
+  }
+
+  .highlight {
+    color: var(--wallet-connection-text-highlight)
+  }
+
+  .wallet-button{
+    @include source-sans-pro-18-semi-bold;
+    border: 1px solid var(--wallet-connection-buttons-background-border);
+    background-color: var(--wallet-connection-buttons-background);
+    border-radius: 13px;
+    padding: 10px 20px;
+    text-align:center;
+    width: 183px;
+    cursor: pointer;
+  }
+
+  .wallet-buttons-wrapper{
+    display: flex;
+    padding: 21px 26.2px 23px 26.2px;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+
+  .header {
+    font-size: 1.2em;
+  }
+  .details {
+    margin: 1em 0;
+    font-weight: 400;
+  }
+
+  .error-box {
+    background: rgba(255, 116, 116, 0.08);
+    padding: 1em;
+  }
+
+  .text-error {
+    color: rgba(200, 36, 88, 1);
+    color: var(--error);
+  }
+
+  .gray {
+    opacity: 0.7;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--pop-up-input);
+    margin: 0.2em 0;
+    border: 1px solid var(--pop-up-input-border);
+    padding: 0.7em;
+    border-radius: 17px;
+
+    input {
+      color: var(--text);
+      height: 35px;
+      max-width: 250px;
+      font-size: 1em;
+      @include source-sans-pro-30-semi-bold
+    }
+  }
+  img {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
+  
+
+  .v-btn {
+    font-size: 1.2em !important;
+    color: var(--text) !important;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.8em;
+    border-collapse: collapse;
+    td {
+      text-align: center;
+    }
+    tr {
+      border-bottom: 0.5em solid transparent;
+      border-right: 2px solid transparent;
+    }
+  }
+
+  .btn.large.disabled
+  {
+    cursor: not-allowed;
+  }
+
+  .btn {
+    min-width: 100px;
+    padding: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--active);
+    border-radius: 0.7em;
+    cursor: pointer;
+
+    &.large {
+      font-size: 1.3em;
+     
+    }
+    &.tiny {
+      font-size: 1em;
+      padding: 0.1em 0.5em;
+      min-width: auto;
+      max-width: 87px;
+      border-radius: 20px;
+      height:25px;
+      
+    }
+
+    &.btn-error {
+      background: rgba(200, 36, 88, 1);
+      background: var(--error);
+      color: var(--buttons-text);
+    }
+    &.btn-warning {
+      background: rgba(233, 119, 94, 1);
+      background: var(--warning);
+      color: var(--buttons-text);
+    }
+    &.btn-success {
+      background: rgba(70, 176, 138, 1);
+      background: var(--success);
+      color: var(--buttons-text);
+    }
+    &.btn-disabled {
+      background: rgba(52, 55, 82, 1);
+      background: var(--btn-disabled);
+      cursor: not-allowed!important;
+      color: var(--buttons-text);
+    }
+  }
+}
+.relative-wrapper-five {
+  margin-right: 20px;
+  position: relative;
+}
+
+.flexible-staking {
+  color: $white;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  padding: 7px;
+  @include source-sans-pro-16-semi-bold;
+}
+
+.staking-details-img {
+  margin-top: 21px;
+  margin-bottom: 16px;
+  height: 55px;
+}
+
+.stake-options {
+  background-color: var(--stake-option);
+  border-radius: 17px;
+  padding: 9px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  max-width: 615px;
+  min-height: 57px;
+  overflow-x: scroll;
+  display: flex;
+  margin-left:auto;
+  margin-right:auto;
+  justify-content: stretch;
+
+  & > div {
+    flex-grow: 1;
+  }
+}
+
+.stake-options-item {
+  flex-grow: 1;
+  color: var(--text-unselected);
+  text-align: center;
+  padding: 4px;
+  cursor: pointer;
+  
+  font-size: 18px!important;
+  @include source-sans-pro-20-semi-bold;
+
+  &.selected {
+    color: var(--option-selected-text);
+    background-color: var(--option-selected);
+    padding: 4px;
+    border-radius: 13px;
+  }
+}
+
+.stake-options-item:hover{
+
+  color:var(--text-unselected-hover);
+  &.selected {
+    color: var(--option-selected-text);
+    
+    
+  }
+}
+
+.staking-options-recap
+{
+  @include source-sans-pro-16-semi-bold;
+  line-height: 35px!important;
+}
+
+
+.menu {
+  background-color: var(--menu-background);
+  border-radius: 17px;
+  height: 47px;
+  display: flex;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  & > div {
+    flex-grow: 1;
+  }
+}
+
+.menu-item {
+  flex-grow: 1;
+  color: var(--text);
+  text-align: center;
+  width: 100%;
+  padding: 7.5px 28.65px;
+  cursor: pointer;
+  @include source-sans-pro-15-semi-bold;
+
+  &.selected {
+    color: var(--text);
+    background-color: var(--menu-selected);
+    border-radius: 13px;
+  }
+}
+
+.menu-item:hover {
+
+  color: var(--text-unselected);
+}
+
+.menu-wrapper{
+  margin-bottom: 82px!important;
+}
+:focus {
+  outline: 0;
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.stake-options.tiny .stake-options-item {
+  font-size: 1em;
+  &.selected {
+    background-color: $gainsboro;
+    background-color: var(--stake-option-selected);
+  }
+}
+
+.group-565 {
+  background-color: $medium-slate-blue;
+  background-color: var(--active);
+  margin-right: 75px;
+  border-radius: 13px;
+  padding: 1px 56px 1px 52px;
+}
+
+.group-556 {
+  margin-right: 98.67px;
+  display: flex;
+  align-items: center;
+}
+
+.group-552 {
+  margin-right: 10.26px;
+  padding: 0.6px 7.51px 4.08px 0;
+  position: relative;
+}
+
+.separator{
+  border: 1px solid var(--separator);
+  height:53px;
+  border-radius:20px;
+  margin-top:auto;
+}
+
+.stake-smak {
+  color: var(--text);
+  margin-top: -5px;
+  min-width: 101px;
+  @include source-sans-pro-20-semi-bold;
+}
+
+.flexible-tag {
+  background-color: var(--flexible-locked-tag);
+  border-radius: 11px;
+  padding: 4px;
+  width: 123px;
+  cursor:default;
+  border-color: #ffffff26 !important;
+  margin-left: 32px;
+  color: var(--flexible-locked-tag2);
+  text-align: center;
+  border: solid;
+  border-width: 1px !important;
+  text-transform: uppercase;
+  @include source-sans-pro-15-semi-bold;
+}
+
+.balance-smak {
+  height: 29px;
+  color: var(--text2);
+  margin-left: 6px;
+  min-width: 176px;
+  @include source-sans-pro-13-semi-bold-line20;
+}
+
+.stake-max {
+  height: 29px;
+  color: var(--text2);
+  margin-left: 6px;
+  @include source-sans-pro-13-semi-bold-line20;
+}
+
+.smak-input-wrapper {
+  background-color: var(--input);
+  margin-bottom: 7px;
+  border-radius: 13px;
+  padding: 3px 14px 3px 15px;
+  border: 1px solid $transparent-white;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+ 
+  @include source-sans-pro-27-regular;
+  color: #9fa9c0;
+}
+
+
+.smak-input-wrapper:hover {
+ 
+  border: solid;
+  border: 0.2px solid #6588C1!important;
+}
+
+
+.smak-input-wrapper input {
+  height: 40px;
+  width: 206px;
+  @include source-code-pro-27-regular;
+  color: var(--text);
+  border: none !important;
+  width:100%;
+  margin-right:5px;
+  
+}
+
+.stake-smak-with-tag
+{
+  align-items: center;
+  margin-bottom: 29px;
+}
+
+.connect-wallet-btn {
+  background-color: var(--connect-wallet-btn);
+  border-radius: 15px;
+  padding: 14px;
+  cursor: pointer;
+  transition: 0.1s;
+  color: var(--connect-wallet-btn-txt);
+  text-align: center;
+  @include source-sans-pro-16-semi-bold;
+}
+
+
+.connect-wallet-btn.connected {
+  background-color: var(--active);
+  color: var(--active-btn-text);
+  margin-top: 5px;
+  transition: 0.1s;
+}
+.connect-wallet-btn.connected:hover {
+ 
+ background-color: rgb(94 84 208 / 89%);
+  
+}
+
+.connect-wallet-btn.connected.disabled{
+  cursor :not-allowed;
+}
+.minimum-value {
+  @include source-sans-pro-13-semi-bold;
+  color: #493f85;
+  color: var(--minimum-value);
+  text-align: right;
+  margin-bottom: 14px;
+}
+
+
+@media screen and (max-width: 959px) {
+  
+  .alert.confirmation{
+    background: var(--confirmation-alert);
+  }
+  
+  .alert.notsuccessful{
+    background: var(--error-alert);
+  }
+  
+  .alert.confirming{
+    background: var(--confirming-alert);
+    
+  }
+  
+  .dialog-overlay
+  {
+    background-color: var(--overlay);
+    width: 100%;
+    height:100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height:100%;
+    z-index: 1;
+  }
+  .alert{
+   
+    border-radius: 13px !important;
+    display:flex;
+    padding: 12px 23px;
+    @include source-sans-pro-15-semi-bold;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    width: 155px;
+    height:auto;
+    z-index: 2;
+  }
+
+  .button-column{
+    width: 60px;
+  }
+  .button-column.unstake-title{
+    width: 38px;
+  }
+  
+  .button-column.redeem-title{
+    width: 89px;
+  }
+  .rectangle-532 {
+    margin-right: 16px;
+  }
+
+  .staking-dialog table{
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .staking-info
+  {
+    background: var(--staking-info-background-on-mobile);
+    border-radius:10px;
+    margin:10px;
+    padding: 20px;
+    padding-bottom: 30px;
+  }
+
+  @media screen and (max-width: 500px) {
+    .user-address
+    {
+      width:100px;
+    }
+  }
+
+
+  @media screen and (max-width: 670px){
+    .mobile-menu.item
+    {
+      margin-left:35px;
+      margin-right:35px;
+    }
+  }
+  .staking-dialog .text.staking-options-recap 
+  {
+    padding: 0.5em!important;
+  }
+  .pannel.staking-details-pannel
+  {
+    min-width: 200px;  max-width: 400px;
+  }
+  .staking-dashboard-cols
+  {
+    min-width: 0px!important;  max-width: 650px!important;
+  }
+  .logo-top {
+    width: auto;
+    height: 55px;
+  }
+  .h-layout {
+    flex-direction: column;
+    &:not(:last-of-type) {
+      &.big {
+        margin-bottom: 18px;
+      }
+    }
+  }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  .pannel {
+    &:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+  .pannel.transparent-on-mobile {
+    background: 0;
+    border: 0;
+    padding: 0;
+  }
+
+.pannel.staking-details-pannel{
+  min-width: 0px!important;
+  max-width:  none!important;
+  margin-right:0px;
+}
+
+.pannel.stats:last-child{
+  min-width: 0px!important;
+  max-width:  none!important;
+  margin-right:0px;
+}
+
+.pannel.stats:first-child{
+  min-width: 0px!important;
+  max-width:  none!important;
+  margin-left:0px;
+}
+
+.pannel.stats{
+  min-width: 0px!important;
+  max-width:  none!important;
+}
+
+.pannel.contract-details{
+  min-width: 0px!important;
+  max-width:  none!important;
+  margin-right:0px;
+}
+
+  .section-header-on-mobile {
+    @include source-sans-pro-27-semi-bold;
+  }
+
+  .staking-details-info {
+    // justify-content: space-between;
+    //TODO : another breakpoint ?
+  }
+  .stacking-details-actions {
+    flex-direction: column;
+  }
+  .stacking-details-action-wrapper {
+    border: 0;
+    background: 0;
+    padding-left: 0;
+    padding-right: 0;
+    &:not(:last-of-type) {
+      margin-right: 0;
+    }
+    img {
+      display: none;
+    }
+  }
+
+  .smak-number-title {
+    margin: 0;
+    opacity: $text-low-opacity;
+  }
+  .smak-number-value,
+  .smak-number-title {
+    @include source-sans-pro-13-semi-bold;
+  }
+
+  .row-on-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .staking-details-info-title,
+  .staking-details-info-value {
+    @include source-sans-pro-13-semi-bold;
+  }
+
+  .staking-details-info-title {
+    opacity: $text-low-opacity;
+  }
+
+  .contract-details-line-value {
+    opacity: $text-low-opacity;
+  }
+
+  .stake-options{
+    margin-bottom: 25px;
+  }
+.chart{
+  font-size:12px !important;
+}
+  .staking-dialog .btn.tiny{
+    border-radius: 10px!important;
+    height:22px!important;
+    padding:0px;
+    max-width: 52px;
+    cursor: pointer;
+  }
+}
+
+.socialm:hover{
+  color:rgb(124 125 144)!important;
+}
+

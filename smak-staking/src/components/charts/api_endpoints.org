@@ -1,0 +1,57 @@
+API root: https://smartlink-indexer-api.deployments.smart-chain.fr
+
+* /charts
+
+** Top token table
+
+/v1/top/tokens
+
+** Top pool table
+
+/v1/top/pools
+
+** TVL graph
+
+/v1/pool/total_value_locked?rate=H
+
+** Volume graph
+
+/v1/pool/total_volume?rate=H
+
+** Global statistics
+
+/pool_statistics
+
+* /dashboard/token?address=<token_address>
+
+** USD price chart
+   
+/v1/pool/<pool_address>/prices?rate=H
+   
+** USD volume chart
+
+/v1/pool/<pool_address>/volume?rate=H
+
+** USD TVL
+
+/v1/pool/<pool_address>/value_locked?rate=H
+
+** Statistics
+
+To get the TVL, 24h volume and 7 day volume, use the same endpoints as above, but with ~rate=D&sort=desc ~ and ~rate=7D&sort=desc~. This will give you a time series with the first element being the absolute value. To get the variation, calculate it using the two first elements.
+   
+* /dashboard/pool?address=<token_address>
+   
+** USD volume chart
+
+/v1/pool/<pool_address>/volume?rate=H
+
+** USD TVL
+
+/v1/pool/<pool_address>/value_locked?rate=H
+
+** Statistics
+
+To get the TVL, 24h volume and 7 day volume, use the same endpoints as above, but with ~rate=D&sort=desc ~ and ~rate=7D&sort=desc~. This will give you a time series with the first element being the absolute value. To get the variation, calculate it using the two first elements.
+
+

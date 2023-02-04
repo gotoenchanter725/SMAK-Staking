@@ -1,0 +1,22 @@
+version: '3'
+services:
+  tz:
+    # ref https://tezos.gitlab.io/flextesa/mini-net.html
+    image: "tqtezos/flextesa:20210514"
+    command: sh -c "flobox start 
+      --add-bootstrap-account bootstrap1,edpkuhJRth9s12SApCJBwgdCpcHbjxqth6HXCZBwAnheSoysqKT23R,tz1Yigc57GHQixFwDEVzj5N1znSCU3aq15td,unencrypted:edsk3EQB2zJvvGrMKzkUxhgERsy6qdDDw19TQyFWkYNUmGSxXiYm7Q@1000000000000
+      --add-bootstrap-account bootstrap2,edpkunkfS48iTAJ1hP7aaEfBkwPT6wPMBjGXBoUZohj8Jupia4wwRm,tz1RTrkJszz7MgNdeEvRLaek8CCrcvhTZTsg,unencrypted:edsk4YDWx5QixxHtEfp5gKuYDd1AZLFqQhmquFgz64mDXghYYzW6T9@1000000000000
+      --add-bootstrap-account bootstrap3,edpkus3KwFWVK9Rx9S9EtJQSBdLgvoeohxeocUJnT3U3i725A4juya,tz1iYCR11SMJcpAH3egtDjZRQgLgKX6agU7s,unencrypted:edsk3G87qnDZhR74qYDFAC6nE17XxWkvPJtWpLw4vfeZ3otEWwwskV@1000000000000
+      "
+    ports:
+      - "8732:20000"
+    environment:
+        - block_time=1
+        - flextesa_node_cors_origin=*
+  nyx:
+    image: "bakingbad/pytezos"
+    command: tail -F .stay-alive
+    volumes:
+      - .:/nyx
+    links:
+      - tz
